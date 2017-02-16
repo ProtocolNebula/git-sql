@@ -1,0 +1,16 @@
+#!/bin/bash
+#mysql -u [mysql user] -p[mysql password] [database] < /path/to/your/repo/[database].sql
+
+# Directorio actual del script
+EXEC_DIR=$( dirname $0 )/
+
+# Cargamos la configuracion de la BD
+. ${EXEC_DIR}db.conf
+
+# Intentamos ejecutar mysqldump
+$(${MYSQLPATH} -u ${USER} --password=${PASSWORD} ${DBNAME} < db.sql)
+
+if [ $? -ne 0 ]; then
+	echo 
+	echo ERROR: Por favor, comprueba que la configuracion a MySQL del archivo ${EXEC_DIR}/db.conf es correcta.
+fi

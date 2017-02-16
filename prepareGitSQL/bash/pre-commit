@@ -1,0 +1,19 @@
+#!/bin/bash
+#mysqldump -u [mysql user] -p[mysql password] --skip-extended-insert [database] > /path/to/your/repo/[database].sql
+
+# Directorio actual del script
+EXEC_DIR=$( dirname $0 )/
+
+# Cargamos la configuracion de la BD
+. ${EXEC_DIR}db.conf
+
+# Intentamos ejecutar mysqldump
+$(${MYSQLDUMPPATH} --user ${USER} --password=${PASSWORD} --skip-extended-insert ${DBNAME} > db.sql)
+
+if [ $? -ne 0 ]; then
+	echo 
+	echo ERROR: Por favor, comprueba que la configuracion a MySQL DUMP del archivo ${EXEC_DIR}/db.conf es correcta.
+fi
+
+# Añadimos el objeto para el commit (esta bug y puede que no lo añada hasta el proximo)
+git add db.sql
