@@ -32,8 +32,8 @@ This is all!
 Your database will be synchronyzed everywhere!
 
 ## Tasks to do
- [ ] Ask for database information
- [ ] Native support for CMD (prepare.cmd)
+ - [ ] Ask for database information
+ - [ ] Native support for CMD (prepare.cmd)
  
  
  **¡Fork me!**
