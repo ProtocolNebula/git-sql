@@ -16,6 +16,7 @@ This is focused for BASH, you can adapt it for CMD (make a pull request if you w
 ## "Installing"
  - Copy directory "prepareGitSQL" to your project folder
  - Open ```terminal``` in Linux/Mac or ```Git Bash``` in Windows
+ 
 ## The first time / after clone
 You have to do the next steps when you **install the script** and **every time you clone** the repo
  - Execute (from root git folder):
