@@ -8,7 +8,7 @@ EXEC_DIR=$( dirname $0 )/
 . ${EXEC_DIR}db.conf
 
 # Intentamos ejecutar mysqldump
-$(${MYSQLDUMPPATH} --user ${USER} --password=${PASSWORD} --skip-extended-insert ${DBNAME} > db.sql)
+$(${MYSQLDUMPPATH} --user ${USER} --password=${PASSWORD} --skip-extended-insert --skip-commit ${DBNAME} > db.sql)
 
 if [ $? -ne 0 ]; then
 	echo 
